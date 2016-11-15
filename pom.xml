@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.faceye</groupId>
+	<artifactId>faceye-util-manager</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<name>faceye-util-manager</name>
+	<url>http://www.faceye.net</url>
+	<dependencies>
+		<dependency>
+			<groupId>com.faceye</groupId>
+			<artifactId>faceye-pom</artifactId>
+			<version>1.0</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>faceye-util-manager</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId> 
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-jar</id><!-- 随便一个名字 -->
+						<phase>package</phase><!-- 绑定到package生命周期阶段上 -->
+						<goals>
+							<goal>single</goal><!-- 只运行一次 -->
+						</goals>
+						<configuration>
+							<skipAssembly>false</skipAssembly><!-- 跳过这个执行器 -->
+							<!-- 自定义输出目录（finalName为最终项目构建名称） -->
+							<!-- <outputDirectory> ${project.build.directory}/${project.build.finalName}/WEB-INF/lib 
+								</outputDirectory> -->
+							<!-- 描述符文件 -->
+							<descriptors>
+								<descriptor>src/main/resources/assembly/jar.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+					<!-- <execution> <id>make-zip</id> <phase>package</phase> <goals> <goal>single</goal> 
+						</goals> <configuration> <skipAssembly>true</skipAssembly> <descriptors> 
+						<descriptor>src/main/assembly/zip.xml</descriptor> </descriptors> </configuration> 
+						</execution> -->
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<excludes>
+						<exclude>**/**/*.xml</exclude>
+						<exclude>**/**/*.properties</exclude>
+						<exclude>**/**/*.txt</exclude>
+						<exclude>**/**/*.dic</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/filters/dev.properties</filter>
+				</filters>
+				<plugins>
+					
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>test</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/filters/test.properties</filter>
+				</filters>
+				<plugins>
+					
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>product</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/filters/product.properties</filter>
+				</filters>
+				<plugins>
+					
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>jdk-1.7</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<jdk>${jdk.version}</jdk>
+			</activation>
+			<properties>
+				<maven.compiler.source>${jdk.version}</maven.compiler.source>
+				<maven.compiler.target>${jdk.version}</maven.compiler.target>
+				<maven.compiler.compilerVersion>${jdk.version}</maven.compiler.compilerVersion>
+			</properties>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		
+		<repository>
+			<id>spring-snapshot</id>
+			<name>Spring Snapshot Repository</name>
+			<url>http://repo.springsource.org/snapshot</url>
+		</repository>
+
+	</repositories>
+	<pluginRepositories>
+		
+	</pluginRepositories>
+</project>
+	
