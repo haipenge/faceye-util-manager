@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class BeanContextUtil implements ApplicationContextAware {
-	@Autowired
+
 	private static ApplicationContext applicationContext = null;
 
 	private static BeanContextUtil beanContextUtil = null;
@@ -25,17 +25,17 @@ public class BeanContextUtil implements ApplicationContextAware {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <T> T getBean(String beanName) {
+	public static  <T> T getBean(String beanName) {
 		T bean = null;
 		if (StringUtils.isNotEmpty(beanName)) {
-			bean = (T) this.applicationContext.getBean(beanName);
+			bean = (T) applicationContext.getBean(beanName);
 		}
 		return bean;
 	}
 	
-	public <T> T getBean(Class<T> clazz){
+	public static <T> T getBean(Class<T> clazz){
 		T bean=null;
-		bean=this.applicationContext.getBean(clazz);
+		bean=applicationContext.getBean(clazz);
 		return bean;
 	}
 	
@@ -43,14 +43,14 @@ public class BeanContextUtil implements ApplicationContextAware {
 		return this.applicationContext.getBeanDefinitionNames();
 	}
 	
-	public ApplicationContext getApplicationContext(){
-		return this.applicationContext;
+	public static ApplicationContext getApplicationContext(){
+		return applicationContext;
 	}
 	
-	public static BeanContextUtil getInstance() {
-		if (beanContextUtil == null) {
-			beanContextUtil = (BeanContextUtil) applicationContext.getBean("beanContextUtil");
-		}
-		return beanContextUtil;
-	}
+//	public static BeanContextUtil getInstance() {
+//		if (beanContextUtil == null) {
+//			beanContextUtil = (BeanContextUtil) applicationContext.getBean("beanContextUtil");
+//		}
+//		return beanContextUtil;
+//	}
 }
