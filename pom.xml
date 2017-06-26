@@ -8,6 +8,13 @@
 	<packaging>jar</packaging>
 	<name>faceye-util-manager</name>
 	<url>http://www.faceye.net</url>
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.faceye</groupId>
@@ -35,7 +42,7 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId> 
+				<artifactId>maven-project-info-reports-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -88,7 +95,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 	<profiles>
@@ -102,7 +109,7 @@
 					<filter>src/main/filters/dev.properties</filter>
 				</filters>
 				<plugins>
-					
+
 				</plugins>
 			</build>
 		</profile>
@@ -116,7 +123,7 @@
 					<filter>src/main/filters/test.properties</filter>
 				</filters>
 				<plugins>
-					
+
 				</plugins>
 			</build>
 		</profile>
@@ -130,12 +137,12 @@
 					<filter>src/main/filters/product.properties</filter>
 				</filters>
 				<plugins>
-					
+
 				</plugins>
 			</build>
 		</profile>
 		<profile>
-			<id>jdk-1.7</id>
+			<id>jdk</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 				<jdk>${jdk.version}</jdk>
@@ -150,6 +157,14 @@
 
 	<repositories>
 		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>central</id>
 			<name>Maven Repository Switchboard</name>
 			<layout>default</layout>
@@ -158,16 +173,10 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		
-		<repository>
-			<id>spring-snapshot</id>
-			<name>Spring Snapshot Repository</name>
-			<url>http://repo.springsource.org/snapshot</url>
-		</repository>
 
 	</repositories>
 	<pluginRepositories>
-		
+
 	</pluginRepositories>
 </project>
 	

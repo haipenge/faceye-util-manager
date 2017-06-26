@@ -1,11 +1,10 @@
 package com.faceye.feature.util;
 
-import org.springframework.dao.DataAccessException;
 
-public class ServiceException extends DataAccessException {
+public class ServiceException {
 
 	public ServiceException(String msg) {
-		super(msg);
+		
 	}
 
 	/**
