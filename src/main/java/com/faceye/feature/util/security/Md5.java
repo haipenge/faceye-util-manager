@@ -109,7 +109,9 @@ public class Md5 {
 		map.put("2", "2");
 		map.put("6", "6");
 		map.put("sign", "5555");
+		for(int i=0;i<10;i++){
 		String mysig = sign(map,"123456abcdefG");
 		System.out.println(mysig);
+		}
 	}
 }
