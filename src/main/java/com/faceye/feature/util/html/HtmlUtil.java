@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 import org.apache.commons.collections.CollectionUtils;
+=======
+>>>>>>> d2bc954f768fd4887b041bb879b8f2344ebbec08
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.slf4j.Logger;
@@ -15,6 +18,11 @@ import org.slf4j.LoggerFactory;
 
 import com.faceye.feature.util.regexp.RegexpUtil;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d2bc954f768fd4887b041bb879b8f2344ebbec08
 /**
  * Html处理
  * @author @haipenge 
@@ -236,4 +244,10 @@ public class HtmlUtil {
 		}
 		return res;
 	}
+<<<<<<< HEAD
+=======
+
+	
+
+>>>>>>> d2bc954f768fd4887b041bb879b8f2344ebbec08
 }
