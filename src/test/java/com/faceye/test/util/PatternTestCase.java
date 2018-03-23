@@ -1,6 +1,5 @@
 package com.faceye.test.util;
 
-import java.io.UnsupportedEncodingException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -50,6 +49,8 @@ public class PatternTestCase {
 		res = isUTF8Chinese(str);
 		str = "®����ҵ԰����·52�����ǲ���������֪�����";
 		res = isUTF8Chinese(str);
+		str="91130528MA087JJX5N";
+		res= isUTF8Chinese(str);
 		Assert.assertTrue(res);
 
 	}
@@ -132,5 +133,20 @@ public class PatternTestCase {
 	public void testEquals() throws Exception{
 		String s="ESINFO";
 		Assert.assertTrue("ESINFO".equals(str));
+	}
+	
+	@Test
+	public void testSocialCode() throws Exception{
+		Pattern pattern =Pattern.compile("^[A-Za-z0-9].+$");
+		String codes[]={"91130528MA087JJX5N","91��s���130528MA087JJX5N中","()--91130528MA087JJX5N中"};
+		Boolean res=false;
+		for(String code:codes){
+			Matcher matcher=pattern.matcher(code);
+			res=matcher.matches();
+		    if(!res){
+		    	System.out.println(code);
+		    }
+		}
+		
 	}
 }

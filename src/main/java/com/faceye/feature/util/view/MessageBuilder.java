@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
+//import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
+
 
 /**
  * 消息构造器
@@ -38,21 +39,23 @@ public class MessageBuilder {
 		List<ViewMessage> viewMessages = null;
 		if (!isContainsKey) {
 			viewMessages = new ArrayList<ViewMessage>(0);
-			if (model instanceof RedirectAttributesModelMap) {
-				((RedirectAttributesModelMap) model).addFlashAttribute(MESSAGE_KEY, viewMessages);
-			} else {
-				model.addAttribute(MESSAGE_KEY, viewMessages);
-			}
+//			if (model instanceof RedirectAttributesModelMap) {
+//				((RedirectAttributesModelMap) model).addFlashAttribute(MESSAGE_KEY, viewMessages);
+//			} else {
+//				model.addAttribute(MESSAGE_KEY, viewMessages);
+//			}
+			model.addAttribute(MESSAGE_KEY, viewMessages);
 		} else {
 			viewMessages = (List<ViewMessage>) model.asMap().get(MESSAGE_KEY);
 		}
 		if (viewMessages == null) {
 			viewMessages = new ArrayList<ViewMessage>(0);
-			if (model instanceof RedirectAttributesModelMap) {
-				((RedirectAttributesModelMap) model).addFlashAttribute(MESSAGE_KEY, viewMessages);
-			} else {
-				model.addAttribute(MESSAGE_KEY, viewMessages);
-			}
+//			if (model instanceof RedirectAttributesModelMap) {
+//				((RedirectAttributesModelMap) model).addFlashAttribute(MESSAGE_KEY, viewMessages);
+//			} else {
+//				model.addAttribute(MESSAGE_KEY, viewMessages);
+//			}
+			model.addAttribute(MESSAGE_KEY, viewMessages);
 		}
 		ViewMessage viewMessage = new ViewMessage();
 		viewMessage.setMessage(message);

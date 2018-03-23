@@ -2,7 +2,6 @@ package com.faceye.feature.util.bean;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
