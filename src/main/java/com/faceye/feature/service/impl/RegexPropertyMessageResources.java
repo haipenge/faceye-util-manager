@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.junit.Assert;
+import org.springframework.util.Assert;
 
 /**
  * 使用通配符加载资源文件(国际化文件)
