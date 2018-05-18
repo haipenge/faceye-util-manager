@@ -14,7 +14,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
 		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
-		<spring-data-commons.version>2.0.4.RELEASE</spring-data-commons.version>
+		<spring-data-commons.version>2.0.7.RELEASE</spring-data-commons.version>
 		<junit.version>4.12</junit.version>
 		<poi.version>3.17</poi.version>
 
